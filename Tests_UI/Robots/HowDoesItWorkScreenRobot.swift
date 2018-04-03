@@ -24,15 +24,13 @@ protocol HowDoesItWorkScreenRobot: BasicRobot {}
 // MARK: - Default Implementation
 
 extension HowDoesItWorkScreenRobot {
-    var backAccessibilityLabel = Localized.back_action_title
-    
+
     // MARK: - Actions
     
     @discardableResult
-    func select(button: HowDoesItWorkScreenButton,
-                file: StaticString = #file,
+    func selectBackButton(file: StaticString = #file,
                 line: UInt = #line) -> HowDoesItWorkScreenRobot {
-        tapButtonWith(accessibilityLabel: backAccessibilityLabel,
+        tapButtonWith(accessibilityLabel: Localized.back_action_title,
                       file: file,
                       line: line)
         

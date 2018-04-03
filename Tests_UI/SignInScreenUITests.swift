@@ -58,7 +58,7 @@ class SignInScreenUITests: XCTestCase {
 
         self.howDoesItWorkScreenRobot
                 .validateOnHowDoesItWorkScreen()
-                .select(button: .back)
+                .selectBackButton()
                 .validateOffHowDoesItWorkScreen()  // fails weird
 
         self.signInRobot

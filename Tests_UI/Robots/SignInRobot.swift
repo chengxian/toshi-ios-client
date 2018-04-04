@@ -51,23 +51,21 @@ enum SignInScreenPhrases {
     var phrase: String {
         switch self {
             case .valid:
-                return "ask "
+            return "ask "
             case .invalid:
-                "marijn "
+            return "marijn "
         }
     }
 }
 
 enum SignInScreenView {
     case
-    passphraseInputView,
     error(words: Int)
 
     var accessibilityLabel: String {
         switch self {
         case .error(let words):
             return LocalizedPlural.passphrase_sign_in_error(for: words)
-        default: break
         }
     }
 }
@@ -117,7 +115,7 @@ extension SignInRobot {
         confirmViewVisibleWith(accessibilityLabel: SignInScreenButton.wordsLeft(words: wordsLeft).accessibilityLabel,
                 file: file,
                 line: line)
-        confirmButtonDisabled(accessibilityLabel: SignInScreenButton.wordsLeft(words: wordsLeft).accessibilityLabel,
+        confirmButtonEnabled(false, accessibilityLabel: SignInScreenButton.wordsLeft(words: wordsLeft).accessibilityLabel,
                 file: file,
                 line: line)
 
@@ -126,7 +124,7 @@ extension SignInRobot {
 
     @discardableResult
     func validateErrorForWrongWords(amount: Int, file: StaticString = #file, line: UInt = #line) -> SignInRobot {
-        confirmViewVisibleWith(accessibilityLabel: SingInScreenLabel.error(words: amount).accessibilityLabel,
+        confirmViewVisibleWith(accessibilityLabel: SignInScreenView.error(words: amount).accessibilityLabel,
                 file: file,
                 line: line)
 
@@ -135,7 +133,7 @@ extension SignInRobot {
 
     @discardableResult
     func validateErrorIsNotVisible(amount: Int, file: StaticString = #file, line: UInt = #line) -> SignInRobot {
-        confirmViewGoneWith(accessibilityLabel: SingInScreenLabel.error(words: amount).accessibilityLabel,
+        confirmViewGoneWith(accessibilityLabel: SignInScreenView.error(words: amount).accessibilityLabel,
                 file: file,
                 line: line)
 
@@ -145,7 +143,7 @@ extension SignInRobot {
     @discardableResult
     func validateSignInEnabled(file: StaticString = #file, line: UInt = #line) -> SignInRobot {
         confirmViewVisibleWith(accessibilityLabel: SignInScreenButton.signIn.accessibilityLabel, file: file, line: line)
-        confirmButtonEnabled(accessibilityLabel: SignInScreenButton.signIn.accessibilityLabel,
+        confirmButtonEnabled(true, accessibilityLabel: SignInScreenButton.signIn.accessibilityLabel,
                 file: file,
                 line: line)
 
@@ -157,7 +155,7 @@ extension SignInRobot {
     @discardableResult
     func enterValidPassPhraseWords(amount: Int, file: StaticString = #file, line: UInt = #line) -> SignInRobot {
 
-        typeText(String(repeating: SignInScreenPhrases.valid.phrase, count: amount), onViewWith: SignInScreenView.passphraseInputView.accessibilityIdentifier,
+        typeText(String(repeating: SignInScreenPhrases.valid.phrase, count: amount), onViewWith: AccessibilityIdentifier.passwordTextField,
                 file: file,
                 line: line)
 
@@ -166,7 +164,7 @@ extension SignInRobot {
 
     @discardableResult
     func enterInvalidPassPhraseWords(amount: Int, file: StaticString = #file, line: UInt = #line) -> SignInRobot {
-        typeText(String(repeating: SignInScreenPhrases.invalid.phrase, count: amount), onViewWith: SignInScreenView.passphraseInputView.accessibilityIdentifier,
+        typeText(String(repeating: SignInScreenPhrases.invalid.phrase, count: amount), onViewWith: AccessibilityIdentifier.passwordTextField,
                 file: file,
                 line: line)
 
@@ -176,7 +174,7 @@ extension SignInRobot {
     @discardableResult
     func clearPassPhrase(file: StaticString = #file, line: UInt = #line) -> SignInRobot {
 
-        typeText(String(repeating: "\u{8}", count: 7), onViewWith: SignInScreenView.passphraseInputView.accessibilityIdentifier,
+        typeText(String(repeating: "\u{8}", count: 7), onViewWith: AccessibilityIdentifier.passwordTextField,
                 file: file,
                 line: line)
 

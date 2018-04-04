@@ -167,7 +167,7 @@ extension EarlGreyRobot: BasicRobot {
                 .perform(grey_clearText())
     }
 
-    func confirmButtonDisabled(accessibilityLabel: String, file: StaticString, line: UInt) {
+    func confirmButtonEnabled(_ enabled: Bool, accessibilityLabel: String, file: StaticString, line: UInt) {
         if enabled {
             viewWith(label: accessibilityLabel, file: file, line: line).assert(with: grey_enabled())
         } else {

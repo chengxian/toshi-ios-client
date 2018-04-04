@@ -134,7 +134,7 @@ protocol BasicRobot {
     ///   - accessibilityLabel: The Accessibility Label of the button. This would be read out loud to VoiceOver users.
     ///   - file: The file from which this method is being called.
     ///   - line: The line from which this method is being called.
-    func confirmButtonEnabled(_ shouldBeEnabled: Bool, accessibilityLabel: String, file: StaticString, line: UInt)
+    func confirmButtonEnabled(_ enabled: Bool, accessibilityLabel: String, file: StaticString, line: UInt)
 }
 
 extension BasicRobot {

@@ -68,12 +68,7 @@ enum SignInScreenView {
         case .error(let words):
             return LocalizedPlural.passphrase_sign_in_error(for: words)
         default: break
-    }
-    var accessibilityIdentifier: String {
-        switch self {
-        case .passphraseInputView(let words):
-            return LocalizedPlural.login_textField
-        default: break
+        }
     }
 }
 

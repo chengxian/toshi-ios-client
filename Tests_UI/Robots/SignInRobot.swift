@@ -50,9 +50,9 @@ enum SignInScreenPhrases {
 
     var phrase: String {
         switch self {
-            case .valid:
+        case .valid:
             return "ask "
-            case .invalid:
+        case .invalid:
             return "marijn "
         }
     }

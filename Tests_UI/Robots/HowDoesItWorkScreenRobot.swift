@@ -20,7 +20,6 @@ import Foundation
 
 protocol HowDoesItWorkScreenRobot: BasicRobot {}
 
-
 // MARK: - Default Implementation
 
 extension HowDoesItWorkScreenRobot {
@@ -28,8 +27,7 @@ extension HowDoesItWorkScreenRobot {
     // MARK: - Actions
     
     @discardableResult
-    func selectBackButton(file: StaticString = #file,
-                line: UInt = #line) -> HowDoesItWorkScreenRobot {
+    func selectBackButton(file: StaticString = #file, line: UInt = #line) -> HowDoesItWorkScreenRobot {
         tapButtonWith(accessibilityLabel: Localized.back_action_title,
                       file: file,
                       line: line)

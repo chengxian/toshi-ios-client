@@ -157,8 +157,8 @@ extension EarlGreyRobot: BasicRobot {
             .perform(grey_tap())
     }
 
-    func typeText(_ text: String, onViewWith accessibilityIdentifier: String, file: StaticString, line: UInt) {
-        viewWith(identifier: accessibilityIdentifier, file: file, line: line)
+    func typeText(_ text: String, onViewWith accessibilityIdentifier: AccessibilityIdentifier, file: StaticString, line: UInt) {
+        viewWith(identifier: accessibilityIdentifier.rawValue, file: file, line: line)
             .perform(grey_typeText(text))
     }
 

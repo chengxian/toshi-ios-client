@@ -61,7 +61,6 @@ class TabBarController: UITabBarController, OfflineAlertDisplaying {
 
     var dappsViewController: DappsNavigationController!
     var messagingController: RecentNavigationController!
-    var profilesController: ProfilesNavigationController!
     var settingsController: SettingsNavigationController!
     var walletController: WalletNavigationController!
 
@@ -81,9 +80,6 @@ class TabBarController: UITabBarController, OfflineAlertDisplaying {
 
     @objc func setupControllers() {
         dappsViewController = DappsNavigationController(rootViewController: DappsViewController())
-        let datasource = ProfilesDataSource(type: .favorites)
-        datasource.excludedProfilesIds = []
-        profilesController = ProfilesNavigationController(rootViewController: ProfilesViewController(datasource: datasource))
 
         walletController = WalletNavigationController(rootViewController: WalletViewController())
 
@@ -102,7 +98,6 @@ class TabBarController: UITabBarController, OfflineAlertDisplaying {
             self.dappsViewController,
             self.messagingController,
             self.walletController,
-            self.profilesController,
             self.settingsController
         ]
 
@@ -305,7 +300,6 @@ extension TabBarController: ScannerViewControllerDelegate {
             self?.dismiss(animated: true) {
                 self?.switch(to: .favorites)
                 let contactController = ProfileViewController(profile: contact)
-                self?.profilesController.pushViewController(contactController, animated: true)
             }
         }
     }

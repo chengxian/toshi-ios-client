@@ -23,7 +23,6 @@ protocol TabBarRobot: BasicRobot { }
 enum TabBarItem {
     case
     dapps,
-    favorites,
     recent,
     settings,
     wallet
@@ -32,8 +31,6 @@ enum TabBarItem {
         switch self {
         case .dapps:
             return Localized.tab_bar_title_dapps
-        case .favorites:
-            return Localized.tab_bar_title_favorites
         case .recent:
             return Localized.tab_bar_title_recent
         case .settings:

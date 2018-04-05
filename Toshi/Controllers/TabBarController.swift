@@ -29,7 +29,6 @@ class TabBarController: UITabBarController, OfflineAlertDisplaying {
         case browsing
         case messaging
         case wallet
-        case favorites
         case me
     }
 
@@ -236,9 +235,6 @@ extension TabBarController: ScannerViewControllerDelegate {
                     let confirmationText = String(format: Localized.payment_request_confirmation_warning_message, fiatValueString, ethValueString, address)
                     proceedToPayment(address: address, weiValue: weiValue, confirmationText: confirmationText)
                 }
-            case .addContact(let username):
-                let contactName = TokenUser.name(from: username)
-                viewContact(with: contactName)
             default:
                 scannerController.startScanning()
             }
@@ -284,23 +280,6 @@ extension TabBarController: ScannerViewControllerDelegate {
 
         } else {
             scannerController.startScanning()
-        }
-    }
-
-    private func viewContact(with contactName: String) {
-        idAPIClient.retrieveUser(username: contactName) { [weak self] contact in
-            guard let contact = contact else {
-                self?.scannerController.startScanning()
-
-                return
-            }
-
-            SoundPlayer.playSound(type: .scanned)
-
-            self?.dismiss(animated: true) {
-                self?.switch(to: .favorites)
-                let contactController = ProfileViewController(profile: contact)
-            }
         }
     }
 }

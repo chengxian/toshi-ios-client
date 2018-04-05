@@ -19,5 +19,6 @@ import Foundation
 enum AccessibilityIdentifier: String {
     case
     mainTabBar = "main_tab_bar",
-    passwordTextField = "password_text_field"
+    passwordTextField = "password_text_field",
+    passphraseSignInExplanationLabel = "passphrase_sign_in_explanation_label"
 }

@@ -18,15 +18,12 @@ import UIKit
 // MARK: - Profiles View Controller Type
 
 public enum ProfilesViewControllerType {
-    case favorites
     case newChat
     case newGroupChat
     case updateGroupChat
     
     var title: String {
         switch self {
-        case .favorites:
-            return Localized.profiles_navigation_title_favorites
         case .newChat:
             return Localized.profiles_navigation_title_new_chat
         case .newGroupChat:
@@ -52,22 +49,10 @@ final class ProfilesViewController: UIViewController {
 
     private(set) weak var output: ProfilesListCompletionOutput?
 
-    let emptyView = EmptyView(title: Localized.favorites_empty_title, description: Localized.favorites_empty_description, buttonTitle: Localized.invite_friends_action_title)
-    var shouldShowEmptyView: Bool { return type == .favorites }
-
-    var scrollView: UIScrollView {
-        switch type {
-        case .favorites:
-            return tableView
-        case .newChat,
-             .newGroupChat,
-             .updateGroupChat:
-            return searchResultView
-        }
-    }
-
     var scrollViewBottomInset: CGFloat = 0.0
 
+    var scrollView: UIScrollView { return searchResultView }
+    
     private lazy var searchResultView: BrowseSearchResultView = {
         let view = BrowseSearchResultView()
         view.searchDelegate = self
@@ -98,21 +83,12 @@ final class ProfilesViewController: UIViewController {
 
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
-        controller.searchResultsUpdater = self
         controller.dimsBackgroundDuringPresentation = false
         controller.hidesNavigationBarDuringPresentation = false
         controller.searchBar.delegate = self
         controller.searchBar.barTintColor = Theme.viewBackgroundColor
         controller.searchBar.tintColor = Theme.tintColor
-
-        switch type {
-        case .favorites:
-            controller.searchBar.placeholder = Localized.profiles_search_favorites_placeholder
-        case .newChat,
-             .newGroupChat,
-             .updateGroupChat:
-            controller.searchBar.placeholder = Localized.profiles_search_users_placeholder
-        }
+        controller.searchBar.placeholder = Localized.profiles_search_users_placeholder
 
         guard #available(iOS 11.0, *) else {
             controller.searchBar.searchBarStyle = .minimal
@@ -134,8 +110,7 @@ final class ProfilesViewController: UIViewController {
         case .newGroupChat,
              .updateGroupChat:
             return true
-        case .newChat,
-             .favorites:
+        case .newChat:
             return false
         }
     }
@@ -184,23 +159,14 @@ final class ProfilesViewController: UIViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
 
-        switch type {
-        case .favorites:
-            setupEmptyView()
-        case .newChat,
-             .newGroupChat,
-             .updateGroupChat:
-            view.addSubview(searchResultView)
-            searchResultView.edges(to: view)
-        }
+        view.addSubview(searchResultView)
+        searchResultView.edges(to: view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         preferLargeTitleIfPossible(true)
-
-        showOrHideEmptyState()
 
         dataSource.searchText = ""
         
@@ -261,20 +227,10 @@ final class ProfilesViewController: UIViewController {
         }
     }
     
-    private func setupEmptyView() {
-        guard shouldShowEmptyView else { return }
-
-        view.addSubview(emptyView)
-        emptyView.actionButton.addTarget(self, action: #selector(emptyViewButtonPressed(_:)), for: .touchUpInside)
-        emptyView.edges(to: layoutGuide())
-    }
-    
     private func setupNavigationBarButtons() {
         switch type {
         case .newChat:
             navigationItem.leftBarButtonItem = cancelButton
-        case .favorites:
-            navigationItem.rightBarButtonItem = addButton
         case .newGroupChat, .updateGroupChat:
             navigationItem.rightBarButtonItem = doneButton
             doneButton.isEnabled = false
@@ -283,7 +239,6 @@ final class ProfilesViewController: UIViewController {
 
     private func displayContacts() {
         reloadData()
-        showOrHideEmptyState()
     }
 
     func isProfileSelected(_ profile: TokenUser) -> Bool {
@@ -301,8 +256,7 @@ final class ProfilesViewController: UIViewController {
     func rightBarButtonEnabled() -> Bool {
         switch type {
         case .newChat,
-             .updateGroupChat,
-             .favorites:
+             .updateGroupChat:
             return true
         default:
             return selectedProfiles.count > 1
@@ -316,13 +270,6 @@ final class ProfilesViewController: UIViewController {
     }
 
     // MARK: - Action Handling
-    
-    private func showOrHideEmptyState() {
-        guard shouldShowEmptyView else { return }
-        let emptyViewHidden = (searchController.isActive || !dataSource.isEmpty)
-        emptyView.isHidden = emptyViewHidden
-        tableView.tableHeaderView?.isHidden = !emptyViewHidden
-    }
     
     @objc private func didTapCancel(_ button: UIBarButtonItem) {
         dismiss(animated: true)
@@ -373,8 +320,7 @@ final class ProfilesViewController: UIViewController {
             let viewModel = NewGroupViewModel(groupModel)
             let groupViewController = GroupViewController(viewModel, configurator: NewGroupConfigurator())
             navigationController?.pushViewController(groupViewController, animated: true)
-        case .favorites,
-             .newChat:
+        case .newChat:
             // Do nothing
             break
         }
@@ -407,9 +353,6 @@ extension ProfilesViewController: UITableViewDelegate {
         searchController.searchBar.resignFirstResponder()
 
         switch type {
-        case .favorites:
-            navigationController?.pushViewController(ProfileViewController(profile: profile), animated: true)
-            UserDefaultsWrapper.selectedContact = profile.address
         case .newChat:
             output?.didFinish(self, selectedProfilesIds: [profile.address])
         case .newGroupChat, .updateGroupChat:
@@ -509,24 +452,6 @@ extension ProfilesViewController: KeyboardAdjustable {
     }
 }
 
-// MARK: - Search Results Updating
-
-extension ProfilesViewController: UISearchResultsUpdating {
-    
-    public func updateSearchResults(for searchController: UISearchController) {
-
-        switch type {
-        case .favorites:
-            dataSource.searchText = searchController.searchBar.text ?? ""
-        case .newChat,
-             .newGroupChat,
-             .updateGroupChat:
-            // Do nothing
-            break
-        }
-    }
-}
-
 // MARK: - Profiles Add Group Header Delegate
 
 extension ProfilesViewController: ProfilesAddGroupHeaderDelegate {
@@ -570,8 +495,6 @@ extension ProfilesViewController: ProfilesDatasourceChangesOutput {
         } else {
             tableView.reloadData()
         }
-
-        showOrHideEmptyState()
     }
 
     @objc private func reload(searchText: String) {

@@ -27,13 +27,6 @@ final class ProfilesHeaderView: UIView {
     
     private func configure(for type: ProfilesViewControllerType, with delegate: ProfilesAddGroupHeaderDelegate?, searchBar: UISearchBar?) {
         switch type {
-        case .favorites:
-            if #available(iOS 11, *) {
-                // Do nothing, search bar should already be set up
-            } else {
-                frame = CGRect(origin: .zero, size: (searchBar?.frame.size ?? .zero))
-                addSearchBar(searchBar)
-            }
         case .newChat:
             let addGroupHeader = ProfilesAddGroupHeader(with: delegate)
             addSubview(addGroupHeader)

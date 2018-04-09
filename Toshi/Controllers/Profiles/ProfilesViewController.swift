@@ -115,9 +115,9 @@ final class ProfilesViewController: UIViewController {
 
     // MARK: - Initialization
 
-    required public init(datasource: ProfilesDataSource, output: ProfilesListCompletionOutput? = nil) {
+    required public init(type: ProfilesViewControllerType, output: ProfilesListCompletionOutput? = nil) {
 
-        self.type = datasource.type
+        self.type = type
 
         super.init(nibName: nil, bundle: nil)
 
@@ -369,8 +369,7 @@ extension ProfilesViewController: KeyboardAdjustable {
 extension ProfilesViewController: ProfilesAddGroupHeaderDelegate {
     
     func newGroup() {
-        let datasource = ProfilesDataSource(type: .newGroupChat)
-        let groupChatSelection = ProfilesViewController(datasource: datasource)
+        let groupChatSelection = ProfilesViewController(type: .newGroupChat)
         navigationController?.pushViewController(groupChatSelection, animated: true)
     }
 }

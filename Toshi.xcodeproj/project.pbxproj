@@ -898,9 +898,6 @@
 		A9BA6B7B1EF7D582007C3206 /* DepositMoneyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B7A1EF7D582007C3206 /* DepositMoneyHeader.swift */; };
 		A9BA6B7D1EF7D746007C3206 /* DepositMoneyBulletPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B7C1EF7D746007C3206 /* DepositMoneyBulletPoint.swift */; };
 		A9BA6B7F1EF7D864007C3206 /* DepositMoneyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B7E1EF7D864007C3206 /* DepositMoneyItem.swift */; };
-		A9BCB3601FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB35F1FCD693A0047CCA7 /* ProfilesDataSource.swift */; };
-		A9BCB3611FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB35F1FCD693A0047CCA7 /* ProfilesDataSource.swift */; };
-		A9BCB3621FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB35F1FCD693A0047CCA7 /* ProfilesDataSource.swift */; };
 		A9BF33AD1E76DF0B009A51AA /* PassphraseEnableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF33AC1E76DF0B009A51AA /* PassphraseEnableController.swift */; };
 		A9BF33AF1E76DF54009A51AA /* PassphraseCopyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF33AE1E76DF54009A51AA /* PassphraseCopyController.swift */; };
 		A9BF33B11E76DF67009A51AA /* PassphraseVerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF33B01E76DF67009A51AA /* PassphraseVerifyController.swift */; };
@@ -1532,7 +1529,6 @@
 		A9BA6B7A1EF7D582007C3206 /* DepositMoneyHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositMoneyHeader.swift; sourceTree = "<group>"; };
 		A9BA6B7C1EF7D746007C3206 /* DepositMoneyBulletPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositMoneyBulletPoint.swift; sourceTree = "<group>"; };
 		A9BA6B7E1EF7D864007C3206 /* DepositMoneyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositMoneyItem.swift; sourceTree = "<group>"; };
-		A9BCB35F1FCD693A0047CCA7 /* ProfilesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesDataSource.swift; sourceTree = "<group>"; };
 		A9BF33AC1E76DF0B009A51AA /* PassphraseEnableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseEnableController.swift; sourceTree = "<group>"; };
 		A9BF33AE1E76DF54009A51AA /* PassphraseCopyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseCopyController.swift; sourceTree = "<group>"; };
 		A9BF33B01E76DF67009A51AA /* PassphraseVerifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassphraseVerifyController.swift; sourceTree = "<group>"; };
@@ -2646,7 +2642,6 @@
 				33CF51401FD56EA000293FD1 /* ProfilesAddedToGroupHeader.swift */,
 				A938AE021FBEF332002A2CD3 /* ProfilesHeaderView.swift */,
 				A96823C61FBC89F3000993FE /* ProfilesNavigationController.swift */,
-				A9BCB35F1FCD693A0047CCA7 /* ProfilesDataSource.swift */,
 				A96823C71FBC89F3000993FE /* ProfilesViewController.swift */,
 			);
 			path = Profiles;
@@ -3863,7 +3858,6 @@
 				2BF2856C2018EF0200DA528D /* TestAppDelegate.swift in Sources */,
 				2B46018D202A40EB0098694D /* Token.swift in Sources */,
 				2BD6FB411F02927F00F1E2BF /* IndexPath+Additions.swift in Sources */,
-				A9BCB3621FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */,
 				3311F4502037595D0069EF22 /* LoadingHUD.swift in Sources */,
 				9FF00E381EB20F3500A854A8 /* EmptyCallHandler.m in Sources */,
 				A9CADC301F94B1DA0096D017 /* BrowseSearchResultView.swift in Sources */,
@@ -4153,7 +4147,6 @@
 				9FEB8C8F1E684FC40088D5A6 /* SignalNotificationManager.swift in Sources */,
 				A91629111F3C64FE008A7F36 /* PaymentNavigationController.swift in Sources */,
 				2BF2856A2018EF0200DA528D /* TestAppDelegate.swift in Sources */,
-				A9BCB3601FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */,
 				2B46018B202A40EB0098694D /* Token.swift in Sources */,
 				9FC72A441E252CFA00EF1141 /* ContactsManager.m in Sources */,
 				A9E1DCE51F1E5C64001A4ABE /* MessagesStatusCell.swift in Sources */,
@@ -4438,7 +4431,6 @@
 				2BF2856B2018EF0200DA528D /* TestAppDelegate.swift in Sources */,
 				2B46018C202A40EB0098694D /* Token.swift in Sources */,
 				A9603DC41F4DABDC00BF57B1 /* EmptyCallHandler.m in Sources */,
-				A9BCB3611FCD693A0047CCA7 /* ProfilesDataSource.swift in Sources */,
 				A9CADC2F1F94B1D90096D017 /* BrowseSearchResultView.swift in Sources */,
 				3311F44F2037595C0069EF22 /* LoadingHUD.swift in Sources */,
 				A9603DC91F4DABDC00BF57B1 /* PaymentManager.swift in Sources */,

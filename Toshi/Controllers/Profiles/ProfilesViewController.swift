@@ -146,8 +146,6 @@ final class ProfilesViewController: UIViewController {
 
         updateHeaderWithSelections()
 
-        displayContacts()
-
         view.addSubview(tableView)
         tableView.edges(to: view)
 
@@ -221,10 +219,6 @@ final class ProfilesViewController: UIViewController {
             navigationItem.rightBarButtonItem = doneButton
             doneButton.isEnabled = false
         }
-    }
-
-    private func displayContacts() {
-        reloadData()
     }
 
     func isProfileSelected(_ profile: TokenUser) -> Bool {
@@ -311,19 +305,6 @@ final class ProfilesViewController: UIViewController {
             break
         }
     }
-
-    // MARK: - Table View Reloading
-
-    func reloadData() {
-        if #available(iOS 11.0, *) {
-            // Must perform batch updates on iOS 11 or you'll get super-wonky layout because of the headers.
-            tableView.performBatchUpdates({
-                self.tableView.reloadData()
-            }, completion: nil)
-        } else {
-            tableView.reloadData()
-        }
-    }
 }
 
 // MARK: - Mix-in extensions
@@ -351,7 +332,6 @@ extension ProfilesViewController: UISearchBarDelegate {
 
         reload(searchText: searchText)
     }
-
 
     @objc private func reload(searchText: String) {
         searchBarText = searchText
@@ -416,9 +396,7 @@ extension ProfilesViewController: SearchSelectionDelegate {
         case .newGroupChat, .updateGroupChat:
             updateSelection(with: profile)
             updateHeaderWithSelections()
-            reloadData()
             navigationItem.rightBarButtonItem?.isEnabled = rightBarButtonEnabled()
         }
     }
-
 }

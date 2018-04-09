@@ -20,7 +20,7 @@ final class UserBotsGroupsViewController: UIViewController {
 
     private let dataSource = UsersBotsGroupsDataSource()
 
-    private lazy var toolbar: PushedSearchHeaderView = {
+    private lazy var searchHeaderView: PushedSearchHeaderView = {
         let view = PushedSearchHeaderView()
         view.delegate = self
 
@@ -34,7 +34,6 @@ final class UserBotsGroupsViewController: UIViewController {
         view.backgroundColor = Theme.viewBackgroundColor
         BasicTableViewCell.register(in: view)
         //view.delegate = self
-        //view.dataSource = self
         view.sectionFooterHeight = 0.0
         view.contentInset.bottom = -21
         view.scrollIndicatorInsets.bottom = -21
@@ -46,8 +45,6 @@ final class UserBotsGroupsViewController: UIViewController {
         return view
     }()
 
-
-
     @objc private func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }
@@ -56,18 +53,18 @@ final class UserBotsGroupsViewController: UIViewController {
         super.viewDidLoad()
 
         view.addSubview(tableView)
-        view.addSubview(toolbar)
+        view.addSubview(searchHeaderView)
 
         edgesForExtendedLayout = []
         automaticallyAdjustsScrollViewInsets = false
         definesPresentationContext = true
 
-        toolbar.top(to: layoutGuide())
-        toolbar.left(to: view)
-        toolbar.right(to: view)
-        toolbar.height(56)
+        searchHeaderView.top(to: layoutGuide())
+        searchHeaderView.left(to: view)
+        searchHeaderView.right(to: view)
+        searchHeaderView.height(56)
 
-        tableView.topToBottom(of: toolbar)
+        tableView.topToBottom(of: searchHeaderView)
         tableView.left(to: view)
         tableView.right(to: view)
         tableView.bottom(to: layoutGuide())
@@ -77,6 +74,12 @@ final class UserBotsGroupsViewController: UIViewController {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
 

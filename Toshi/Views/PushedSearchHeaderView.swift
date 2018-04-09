@@ -27,6 +27,12 @@ final class PushedSearchHeaderView: UIView {
 
     weak var delegate: PushedSearchHeadrDelegate?
 
+    var searchPlaceholder: String? {
+        didSet {
+            searchTextField.placeholder = searchPlaceholder
+        }
+    }
+
     private lazy var backButton: UIButton = {
         let view = UIButton()
         view.setTitleColor(Theme.tintColor, for: .normal)

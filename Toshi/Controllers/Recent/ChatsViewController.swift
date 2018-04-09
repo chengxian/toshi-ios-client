@@ -83,9 +83,8 @@ final class ChatsViewController: SweetTableController {
     }
     
     @objc private func didPressCompose(_ barButtonItem: UIBarButtonItem) {
-        let datasource = ProfilesDataSource(type: .newChat)
-        let profilesViewController = ProfilesNavigationController(rootViewController: ProfilesViewController(datasource: datasource, output: self))
-        Navigator.presentModally(profilesViewController)
+        let newChatController = NewChatViewController()
+        navigationController?.pushViewController(newChatController, animated: true)
     }
 
     private func threadToShow(at indexPath: IndexPath) -> TSThread? {

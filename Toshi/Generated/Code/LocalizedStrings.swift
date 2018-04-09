@@ -193,6 +193,7 @@ enum LocalizedKey: String, StringCaseListable {
     report_feedback_alert_message,
     report_feedback_alert_title,
     ropsten_test_network_title,
+    search_for_name_or_username,
     search_people_placeholder,
     settings_advanced_network_change_warning,
     settings_cell_advanced,
@@ -232,6 +233,7 @@ enum LocalizedKey: String, StringCaseListable {
     sign_up_with_passphrase_accept_action_title,
     sign_up_with_passphrase_alert_message,
     sign_up_with_passphrase_alert_title,
+    start_a_new_group,
     status_type_added,
     status_type_became_member,
     status_type_change_photo,
@@ -873,6 +875,9 @@ struct Localized {
     /// `en`: "Ropsten Test Network"
     static let ropsten_test_network_title = LocalizedKey.ropsten_test_network_title.currentValue
     
+    /// `en`: "Search for name or username"
+    static let search_for_name_or_username = LocalizedKey.search_for_name_or_username.currentValue
+    
     /// `en`: "Search people, groups & bots"
     static let search_people_placeholder = LocalizedKey.search_people_placeholder.currentValue
     
@@ -989,6 +994,9 @@ struct Localized {
     
     /// `en`: "Create new Toshi account?"
     static let sign_up_with_passphrase_alert_title = LocalizedKey.sign_up_with_passphrase_alert_title.currentValue
+    
+    /// `en`: "Start a New Group"
+    static let start_a_new_group = LocalizedKey.start_a_new_group.currentValue
     
     /// `en`: "%@ added %@ to the group."
     static let status_type_added = LocalizedKey.status_type_added.currentValue

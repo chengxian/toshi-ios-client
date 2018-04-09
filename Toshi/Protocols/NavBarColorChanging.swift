@@ -58,6 +58,13 @@ extension TokenEtherDetailViewController: NavBarColorChanging {
     var navShadowImage: UIImage? { return nil }
 }
 
+extension ProfilesViewController: NavBarColorChanging {
+    var navTintColor: UIColor? { return Theme.tintColor }
+    var navBarTintColor: UIColor? { return Theme.navigationBarColor }
+    var navTitleColor: UIColor? { return Theme.darkTextColor }
+    var navShadowImage: UIImage? { return nil }
+}
+
 extension DappViewController: NavBarColorChanging {
     var navTintColor: UIColor? { return nil }
     var navBarTintColor: UIColor? { return nil }

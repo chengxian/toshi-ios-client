@@ -79,6 +79,9 @@
 		2B3541D2207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
 		2B3541D3207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
 		2B3541D4207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
+		2B3541D6207B702E0020E841 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D5207B702E0020E841 /* NewChatViewController.swift */; };
+		2B3541D7207B702E0020E841 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D5207B702E0020E841 /* NewChatViewController.swift */; };
+		2B3541D8207B702E0020E841 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D5207B702E0020E841 /* NewChatViewController.swift */; };
 		2B3541DB207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
 		2B3541DC207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
 		2B3541DD207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
@@ -1214,6 +1217,7 @@
 		2B282E791FD8171900B52272 /* sofa-web3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "sofa-web3.js"; sourceTree = "<group>"; };
 		2B2AE1E9203D888C00202BE2 /* WalletEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEmptyView.swift; sourceTree = "<group>"; };
 		2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBotsGroupsDatasource.swift; sourceTree = "<group>"; };
+		2B3541D5207B702E0020E841 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushedSearchHeaderView.swift; sourceTree = "<group>"; };
 		2B355BD91EAE356C0093FA8F /* TokenUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenUser.swift; sourceTree = "<group>"; };
 		2B3D8173202E63DB003B7874 /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
@@ -2586,6 +2590,7 @@
 				2B09B40C1FE1230B008F7917 /* RecentViewModel.swift */,
 				2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */,
 				2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */,
+				2B3541D5207B702E0020E841 /* NewChatViewController.swift */,
 			);
 			path = Recent;
 			sourceTree = "<group>";
@@ -3998,6 +4003,7 @@
 				2B1D669D1FC2F96500EB166C /* TableViewData.swift in Sources */,
 				9F88EA061EE041A900267573 /* SettingsSectionHeader.swift in Sources */,
 				149F9AA41E72E29A00FB74AA /* EthereumNotificationHandler.swift in Sources */,
+				2B3541D8207B702E0020E841 /* NewChatViewController.swift in Sources */,
 				338472F9202A68A9000F5A8A /* QuickAlertView.swift in Sources */,
 				149F9AA51E72E29A00FB74AA /* TabBarController.swift in Sources */,
 				2B953AC71FAC9E1A005A5BF3 /* NSString+OWS.m in Sources */,
@@ -4296,6 +4302,7 @@
 				2B1D669B1FC2F96500EB166C /* TableViewData.swift in Sources */,
 				A9F8D1C81E72B4AA003F5749 /* Checkbox.swift in Sources */,
 				9FCF13281E52FC2A0078FF7F /* TSThread+Additions.m in Sources */,
+				2B3541D6207B702E0020E841 /* NewChatViewController.swift in Sources */,
 				2BE6FB0F1EFC0C1600B0B848 /* AvatarManager.swift in Sources */,
 				2B953AC51FAC9E1A005A5BF3 /* NSString+OWS.m in Sources */,
 				A91D72AB1F8785E10093420C /* ChatButtonsCollectionViewLayout.swift in Sources */,
@@ -4580,6 +4587,7 @@
 				A9603EF81F4DABDC00BF57B1 /* SettingsSectionHeader.swift in Sources */,
 				2B4BCD5A1F59954E00F9E609 /* DistributionDevTokenURLPaths.swift in Sources */,
 				A9603EFB1F4DABDC00BF57B1 /* EthereumNotificationHandler.swift in Sources */,
+				2B3541D7207B702E0020E841 /* NewChatViewController.swift in Sources */,
 				338472F8202A68A9000F5A8A /* QuickAlertView.swift in Sources */,
 				A9603F041F4DABDC00BF57B1 /* TabBarController.swift in Sources */,
 				2B953AC61FAC9E1A005A5BF3 /* NSString+OWS.m in Sources */,

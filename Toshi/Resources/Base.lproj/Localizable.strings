@@ -39,6 +39,10 @@
 "payment_message_preview_string" = "Payment";
 "attachment_message_preview_string" = "Attachment";
 
+"search_for_name_or_username" = "Search for name or username";
+
+"start_a_new_group" = "Start a New Group";
+
 "thread_action_delete" = "Delete";
 "thread_action_mute" = "Mute";
 "thread_action_unmute" = "Unmute";

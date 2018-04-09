@@ -113,19 +113,13 @@ final class ProfilesViewController: UIViewController {
         }
     }
 
-    private(set) var dataSource: ProfilesDataSource
-
     // MARK: - Initialization
 
     required public init(datasource: ProfilesDataSource, output: ProfilesListCompletionOutput? = nil) {
 
-        self.dataSource = datasource
-
         self.type = datasource.type
 
         super.init(nibName: nil, bundle: nil)
-
-        self.dataSource.changesOutput = self
 
         title = type.title
         self.output = output
@@ -165,12 +159,6 @@ final class ProfilesViewController: UIViewController {
         super.viewWillAppear(animated)
         
         preferLargeTitleIfPossible(true)
-
-        dataSource.searchText = ""
-        
-        if dataSource.type != .updateGroupChat {
-            dataSource.excludedProfilesIds = []
-        }
 
         if let indexPathForSelectedRow = searchResultView.indexPathForSelectedRow {
             searchResultView.deselectRow(at: indexPathForSelectedRow, animated: true)

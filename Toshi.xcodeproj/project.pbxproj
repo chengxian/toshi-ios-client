@@ -79,6 +79,9 @@
 		2B3541D2207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
 		2B3541D3207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
 		2B3541D4207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
+		2B3541DB207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
+		2B3541DC207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
+		2B3541DD207B71450020E841 /* PushedSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */; };
 		2B355BDA1EAE356C0093FA8F /* TokenUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B355BD91EAE356C0093FA8F /* TokenUser.swift */; };
 		2B35F2C01EF93320006A0FD0 /* ActivityIndicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C07E1EF3ED4700F99CE2 /* ActivityIndicating.swift */; };
 		2B369E371EE59958002A44A3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E5DA11E4C982300543296 /* Message.swift */; };
@@ -1211,6 +1214,7 @@
 		2B282E791FD8171900B52272 /* sofa-web3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "sofa-web3.js"; sourceTree = "<group>"; };
 		2B2AE1E9203D888C00202BE2 /* WalletEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEmptyView.swift; sourceTree = "<group>"; };
 		2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBotsGroupsDatasource.swift; sourceTree = "<group>"; };
+		2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushedSearchHeaderView.swift; sourceTree = "<group>"; };
 		2B355BD91EAE356C0093FA8F /* TokenUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenUser.swift; sourceTree = "<group>"; };
 		2B3D8173202E63DB003B7874 /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 		2B3D8178202E68C9003B7874 /* SendTokenViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenViewConfigurator.swift; sourceTree = "<group>"; };
@@ -2341,6 +2345,7 @@
 				A9AC74101E78064500365029 /* TextLabel.swift */,
 				336E238F20653177008A48A7 /* TintColorChangingButton.swift */,
 				A9AC740D1E78051F00365029 /* TitleLabel.swift */,
+				2B3541DA207B71450020E841 /* PushedSearchHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4051,6 +4056,7 @@
 				D197B329D1F28B5F7868DE4D /* ProfileEditController.swift in Sources */,
 				D197B99E1E1E4A6020699D14 /* ProfileViewController.swift in Sources */,
 				D197B1E9BB5E12653D8EE2CC /* SofaStatus.swift in Sources */,
+				2B3541DD207B71450020E841 /* PushedSearchHeaderView.swift in Sources */,
 				2B50CCEB20526C3200FF8332 /* DappInfoView.swift in Sources */,
 				2B3D817B202E68C9003B7874 /* SendTokenViewConfigurator.swift in Sources */,
 				D197B844B1C67758B2A0E9F2 /* StatusCell.swift in Sources */,
@@ -4348,6 +4354,7 @@
 				3312F6842007A59400881B97 /* UIStackView+Additions.swift in Sources */,
 				D197BADE7B88BF0539D8646B /* SofaStatus.swift in Sources */,
 				D197B57BA2EA6533D6523DB0 /* StatusCell.swift in Sources */,
+				2B3541DB207B71450020E841 /* PushedSearchHeaderView.swift in Sources */,
 				2B50CCE920526C3200FF8332 /* DappInfoView.swift in Sources */,
 				2B3D8179202E68C9003B7874 /* SendTokenViewConfigurator.swift in Sources */,
 				D197BBE91E49D7B9DCD1B17D /* String+nsRange.swift in Sources */,
@@ -4631,6 +4638,7 @@
 				D197BADA32392E95EA354C18 /* ProfileEditController.swift in Sources */,
 				D197B47D98009339295B1A5C /* ProfileViewController.swift in Sources */,
 				D197B4827BED8F3A5BAB5CB8 /* SofaStatus.swift in Sources */,
+				2B3541DC207B71450020E841 /* PushedSearchHeaderView.swift in Sources */,
 				2B50CCEA20526C3200FF8332 /* DappInfoView.swift in Sources */,
 				2B3D817A202E68C9003B7874 /* SendTokenViewConfigurator.swift in Sources */,
 				D197BBDB018E3C6EE3CA3B1B /* StatusCell.swift in Sources */,

@@ -20,87 +20,9 @@ final class UserBotsGroupsViewController: UIViewController {
 
     private let dataSource = UsersBotsGroupsDataSource()
 
-    private lazy var backButton: UIButton = {
-        let view = UIButton()
-        view.setTitleColor(Theme.tintColor, for: .normal)
-        view.size(CGSize(width: .defaultButtonHeight, height: .defaultButtonHeight))
-        view.setImage(ImageAsset.web_back.withRenderingMode(.alwaysTemplate), for: .normal)
-        view.tintColor = Theme.tintColor
-        view.addTarget(self, action: #selector(self.didTapBackButton), for: .touchUpInside)
-        view.contentHorizontalAlignment = .left
-
-        return view
-    }()
-
-    private(set) lazy var searchTextField: UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .none
-        textField.delegate = self
-        textField.layer.cornerRadius = 5
-        textField.tintColor = Theme.tintColor
-        textField.returnKeyType = .go
-
-        return textField
-    }()
-
-    private lazy var searchTextFieldBackgroundView: UIView = {
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = Theme.searchBarColor
-        backgroundView.layer.cornerRadius = 5
-        backgroundView.height(36)
-
-        backgroundView.addSubview(searchTextField)
-        searchTextField.leftToSuperview(offset: .mediumInterItemSpacing)
-        searchTextField.topToSuperview()
-        searchTextField.bottomToSuperview()
-        searchTextField.right(to: backgroundView, offset: -.smallInterItemSpacing)
-
-        return backgroundView
-    }()
-
-    private lazy var cancelButton: UIButton = {
-        let cancelButton = UIButton()
-        cancelButton.setTitle(Localized.cancel_action_title, for: .normal)
-        cancelButton.setTitleColor(Theme.tintColor, for: .normal)
-        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
-        cancelButton.setContentCompressionResistancePriority(.required, for: .horizontal)
-        cancelButton.setContentHuggingPriority(.required, for: .horizontal)
-
-        return cancelButton
-    }()
-
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-
-        return stackView
-    }()
-
-    private lazy var toolbar: UIView = {
-        let view = UIView()
-
-        view.addSubview(stackView)
-        stackView.edgesToSuperview()
-        stackView.alignment = .center
-        stackView.addBackground(with: Theme.viewBackgroundColor)
-
-        stackView.addSpacerView(with: .defaultMargin)
-        stackView.addArrangedSubview(backButton)
-        stackView.addArrangedSubview(searchTextFieldBackgroundView)
-        stackView.addSpacing(.smallInterItemSpacing, after: searchTextFieldBackgroundView)
-
-        stackView.addArrangedSubview(cancelButton)
-        stackView.addSpacerView(with: .defaultMargin)
-
-        let separator = BorderView()
-        view.addSubview(separator)
-        separator.leftToSuperview()
-        separator.rightToSuperview()
-        separator.bottomToSuperview()
-        separator.addHeightConstraint()
-
-        cancelButton.isHidden = true
+    private lazy var toolbar: PushedSearchHeaderView = {
+        let view = PushedSearchHeaderView()
+        view.delegate = self
 
         return view
     }()
@@ -124,9 +46,7 @@ final class UserBotsGroupsViewController: UIViewController {
         return view
     }()
 
-    @objc private func didTapCancelButton() {
-        searchTextField.resignFirstResponder()
-    }
+
 
     @objc private func didTapBackButton() {
         navigationController?.popViewController(animated: true)
@@ -158,32 +78,22 @@ final class UserBotsGroupsViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
-    private func adjustHeaderToSearching(isSearching: Bool) {
-        toolbar.layoutIfNeeded()
-        cancelButton.isHidden = !isSearching
-        backButton.isHidden = isSearching
-
-        UIView.animate(withDuration: 0.3) {
-            self.backButton.alpha = isSearching ? 0 : 1
-            self.toolbar.layoutIfNeeded()
-        }
-    }
 }
 
-extension UserBotsGroupsViewController: UITextFieldDelegate {
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        adjustHeaderToSearching(isSearching: true)
+extension UserBotsGroupsViewController: PushedSearchHeadrDelegate {
+    func searchHeaderWillBeginEditing(_ headerView: PushedSearchHeaderView) {
         dataSource.isSearching = true
-
-        return true
     }
 
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        adjustHeaderToSearching(isSearching: false)
+    func searchHeaderWillEndEditing(_ headerView: PushedSearchHeaderView) {
         dataSource.isSearching = false
+    }
 
-        return true
+    func searchHeaderDidReceiveCancelEvent(_ headerView: PushedSearchHeaderView) {
+
+    }
+
+    func searchHeaderViewDidReceiveBackEvent(_ headerView: PushedSearchHeaderView) {
+        navigationController?.popViewController(animated: true)
     }
 }

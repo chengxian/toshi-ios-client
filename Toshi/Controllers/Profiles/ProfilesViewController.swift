@@ -107,7 +107,7 @@ final class ProfilesViewController: UIViewController {
 
         switch type {
         case .favorites:
-            controller.searchBar.placeholder = Localized.profiles_search_favorites_placeholder
+            break
         case .newChat,
              .newGroupChat,
              .updateGroupChat:

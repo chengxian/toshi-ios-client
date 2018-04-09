@@ -42,6 +42,9 @@
 		2B07FC47207517F2005F2B40 /* NavBarColorChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC46207517F2005F2B40 /* NavBarColorChanging.swift */; };
 		2B07FC48207517F2005F2B40 /* NavBarColorChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC46207517F2005F2B40 /* NavBarColorChanging.swift */; };
 		2B07FC49207517F2005F2B40 /* NavBarColorChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC46207517F2005F2B40 /* NavBarColorChanging.swift */; };
+		2B07FC4B2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */; };
+		2B07FC4C2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */; };
+		2B07FC4D2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */; };
 		2B09B4091FE11F40008F7917 /* ThreadsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */; };
 		2B09B40A1FE11F40008F7917 /* ThreadsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */; };
 		2B09B40B1FE11F40008F7917 /* ThreadsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */; };
@@ -1194,6 +1197,7 @@
 		24AC0CEAA51D7F8A19F246E9 /* libPods-CocoaPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CocoaPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B002D8E1F17BA1800D92240 /* NetworkSwitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSwitcher.swift; sourceTree = "<group>"; };
 		2B07FC46207517F2005F2B40 /* NavBarColorChanging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarColorChanging.swift; sourceTree = "<group>"; };
+		2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBotsGroupsViewController.swift; sourceTree = "<group>"; };
 		2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsDataSource.swift; sourceTree = "<group>"; };
 		2B09B40C1FE1230B008F7917 /* RecentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewModel.swift; sourceTree = "<group>"; };
 		2B0EF8281F948931001A76CA /* CrashlyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsClient.swift; sourceTree = "<group>"; };
@@ -2571,6 +2575,7 @@
 				2B7088A91FE3FEA900D16C55 /* ThreadCellConfigurator.swift */,
 				2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */,
 				2B09B40C1FE1230B008F7917 /* RecentViewModel.swift */,
+				2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */,
 			);
 			path = Recent;
 			sourceTree = "<group>";
@@ -3953,6 +3958,7 @@
 				2B6C18FF1FCD531E00DE432B /* NewGroupConfigurator.swift in Sources */,
 				9F78D9D21EE93E68003A0B95 /* ModalTransition.swift in Sources */,
 				2BBD3FA3202BCDEA007E6BCE /* CollectibleTokensDatasource.swift in Sources */,
+				2B07FC4D2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */,
 				2BC85F801F0F946600BCB171 /* InputCell.swift in Sources */,
 				33643DCA1FD6DA6E00229BE2 /* ProfilesAddedToGroupHeader.swift in Sources */,
 				9F3CF6A71FE14BBA00043530 /* TextTransformer.swift in Sources */,
@@ -4248,6 +4254,7 @@
 				2BE66A0C1EF910B6007A7130 /* KeyboardAdjustable.swift in Sources */,
 				2BBD3FA1202BCDEA007E6BCE /* CollectibleTokensDatasource.swift in Sources */,
 				2B7088A61FE3EE7700D16C55 /* AvatarTitleSubtitleDetailsBadgeCell.swift in Sources */,
+				2B07FC4B2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */,
 				A9180FB11F5452A000DC668E /* MessagesErrorView.swift in Sources */,
 				A9ED6CD01E83CD8400160637 /* Footnote.swift in Sources */,
 				2B4E25EE1FCCCDA6004614D5 /* TitleSubtitleCell.swift in Sources */,
@@ -4529,6 +4536,7 @@
 				2B6C18FE1FCD531E00DE432B /* NewGroupConfigurator.swift in Sources */,
 				A9603ED11F4DABDC00BF57B1 /* InputCell.swift in Sources */,
 				2BBD3FA2202BCDEA007E6BCE /* CollectibleTokensDatasource.swift in Sources */,
+				2B07FC4C2077676D005F2B40 /* UserBotsGroupsViewController.swift in Sources */,
 				A9603ED61F4DABDC00BF57B1 /* ProfileEditConfigurator.swift in Sources */,
 				33643DC91FD6DA6E00229BE2 /* ProfilesAddedToGroupHeader.swift in Sources */,
 				9F3CF6A61FE14BBA00043530 /* TextTransformer.swift in Sources */,

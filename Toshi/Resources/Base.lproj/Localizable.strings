@@ -263,7 +263,7 @@
 "profiles_add_to_group_prefix" = "To: ";
 "profiles_empty_group_placeholder" = "No recipients yet";
 "profiles_search_users_placeholder" = "Search users";
-"profiles_search_favorites_placeholder" = "Search favorites";
+"search_people_placeholder" = "Search people, groups & bots";
 
 /* Tab Bar */
 "tab_bar_title_dapps" = "Đapps";

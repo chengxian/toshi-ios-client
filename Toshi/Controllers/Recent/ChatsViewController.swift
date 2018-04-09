@@ -180,8 +180,8 @@ extension ChatsViewController: UITableViewDelegate {
 
         switch item {
         case .findPeople:
-            // Present search controller
-            break
+            let controller = UserBotsGroupsViewController()
+            navigationController?.pushViewController(controller, animated: true)
         case .messageRequests:
             if dataSource.hasUnacceptedThreads {
                 let messagesRequestsViewController = ChatsViewController(style: .grouped, target: .unacceptedThreadRequests)

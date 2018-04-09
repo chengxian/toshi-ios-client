@@ -181,19 +181,19 @@ enum LocalizedKey: String, StringCaseListable {
     profiles_navigation_title_new_group_chat,
     profiles_navigation_title_update_group_chat,
     profiles_new_group,
-    profiles_search_favorites_placeholder,
     profiles_search_users_placeholder,
     qr_scanner_instructions,
     rate_user_message_format,
     rate_user_title_format,
     rating_starter_placeholder,
-    recent_messages_section_header_title,
     recent_find_people_title,
     recent_invite_a_friend,
+    recent_messages_section_header_title,
     report_action_title,
     report_feedback_alert_message,
     report_feedback_alert_title,
     ropsten_test_network_title,
+    search_people_placeholder,
     settings_advanced_network_change_warning,
     settings_cell_advanced,
     settings_cell_local_currency,
@@ -241,9 +241,9 @@ enum LocalizedKey: String, StringCaseListable {
     status_type_make_public,
     status_type_rename,
     submit_action_title,
+    tab_bar_title_chats,
     tab_bar_title_dapps,
     tab_bar_title_favorites,
-    tab_bar_title_chats,
     tab_bar_title_settings,
     tab_bar_title_wallet,
     text_editing_options_paste,
@@ -644,15 +644,6 @@ struct Localized {
     
     /// `en`: "Message Requests"
     static let messages_requests_title = LocalizedKey.messages_requests_title.currentValue
-
-    /// `en`: "Delete"
-    static let thread_action_delete = LocalizedKey.thread_action_delete.currentValue
-
-    /// `en`: "Mute"
-    static let thread_action_mute = LocalizedKey.thread_action_mute.currentValue
-
-    /// `en`: "Unmute"
-    static let thread_action_unmute = LocalizedKey.thread_action_unmute.currentValue
     
     /// `en`: "Not delivered Tap to retry"
     static let messages_sent_error = LocalizedKey.messages_sent_error.currentValue
@@ -846,9 +837,6 @@ struct Localized {
     /// `en`: "New Group"
     static let profiles_new_group = LocalizedKey.profiles_new_group.currentValue
     
-    /// `en`: "Search favorites"
-    static let profiles_search_favorites_placeholder = LocalizedKey.profiles_search_favorites_placeholder.currentValue
-    
     /// `en`: "Search users"
     static let profiles_search_users_placeholder = LocalizedKey.profiles_search_users_placeholder.currentValue
     
@@ -864,14 +852,14 @@ struct Localized {
     /// `en`: " Review (optional)"
     static let rating_starter_placeholder = LocalizedKey.rating_starter_placeholder.currentValue
     
-    /// `en`: "Messages"
-    static let recent_messages_section_header_title = LocalizedKey.recent_messages_section_header_title.currentValue
-
     /// `en`: "Find People, Groups & Bots"
     static let recent_find_people_title = LocalizedKey.recent_find_people_title.currentValue
-
+    
     /// `en`: "Invite a Friend"
     static let recent_invite_a_friend = LocalizedKey.recent_invite_a_friend.currentValue
+    
+    /// `en`: "Messages"
+    static let recent_messages_section_header_title = LocalizedKey.recent_messages_section_header_title.currentValue
     
     /// `en`: "Report"
     static let report_action_title = LocalizedKey.report_action_title.currentValue
@@ -884,6 +872,9 @@ struct Localized {
     
     /// `en`: "Ropsten Test Network"
     static let ropsten_test_network_title = LocalizedKey.ropsten_test_network_title.currentValue
+    
+    /// `en`: "Search people, groups & bots"
+    static let search_people_placeholder = LocalizedKey.search_people_placeholder.currentValue
     
     /// `en`: "Changing the network allows you to test services without the risk of losing money. It’s recommended not to change these settings unless you are a developer\n\n"
     static let settings_advanced_network_change_warning = LocalizedKey.settings_advanced_network_change_warning.currentValue
@@ -1026,14 +1017,14 @@ struct Localized {
     /// `en`: "Submit"
     static let submit_action_title = LocalizedKey.submit_action_title.currentValue
     
+    /// `en`: "Chats"
+    static let tab_bar_title_chats = LocalizedKey.tab_bar_title_chats.currentValue
+    
     /// `en`: "Đapps"
     static let tab_bar_title_dapps = LocalizedKey.tab_bar_title_dapps.currentValue
     
     /// `en`: "Favorites"
     static let tab_bar_title_favorites = LocalizedKey.tab_bar_title_favorites.currentValue
-    
-    /// `en`: "Recent"
-    static let tab_bar_title_chats = LocalizedKey.tab_bar_title_chats.currentValue
     
     /// `en`: "Settings"
     static let tab_bar_title_settings = LocalizedKey.tab_bar_title_settings.currentValue
@@ -1043,6 +1034,15 @@ struct Localized {
     
     /// `en`: "Paste"
     static let text_editing_options_paste = LocalizedKey.text_editing_options_paste.currentValue
+    
+    /// `en`: "Delete"
+    static let thread_action_delete = LocalizedKey.thread_action_delete.currentValue
+    
+    /// `en`: "Mute"
+    static let thread_action_mute = LocalizedKey.thread_action_mute.currentValue
+    
+    /// `en`: "Unmute"
+    static let thread_action_unmute = LocalizedKey.thread_action_unmute.currentValue
     
     /// `en`: "Data task error, request could not be completed"
     static let toshi_error_data_task_error = LocalizedKey.toshi_error_data_task_error.currentValue

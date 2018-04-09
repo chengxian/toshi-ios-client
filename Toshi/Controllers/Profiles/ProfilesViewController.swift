@@ -75,8 +75,6 @@ final class ProfilesViewController: UIViewController {
         tableView.estimatedRowHeight = 80
         tableView.backgroundColor = Theme.viewBackgroundColor
         tableView.separatorStyle = .none
-        tableView.dataSource = self
-        tableView.delegate = self
 
         return tableView
     }()
@@ -340,70 +338,6 @@ final class ProfilesViewController: UIViewController {
     }
 }
 
-// MARK: - Table View Delegate
-
-extension ProfilesViewController: UITableViewDelegate {
-    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let profile = dataSource.profile(at: indexPath) else { return}
-
-        didSelectProfile(profile: profile)
-    }
-
-    func didSelectProfile(profile: TokenUser) {
-        searchController.searchBar.resignFirstResponder()
-
-        switch type {
-        case .newChat:
-            output?.didFinish(self, selectedProfilesIds: [profile.address])
-        case .newGroupChat, .updateGroupChat:
-            updateSelection(with: profile)
-            updateHeaderWithSelections()
-            reloadData()
-            navigationItem.rightBarButtonItem?.isEnabled = rightBarButtonEnabled()
-        }
-    }
-}
-// MARK: - Table View Data Source
-
-extension ProfilesViewController: UITableViewDataSource {
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSource.numberOfSections()
-    }
-
-    public func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.numberOfItems(in: section)
-    }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let profile = dataSource.profile(at: indexPath) else {
-            assertionFailure("Could not get profile at indexPath: \(indexPath)")
-            return UITableViewCell()
-        }
-
-        var shouldShowCheckmark = false
-        if isMultipleSelectionMode {
-            shouldShowCheckmark = true
-        }
-
-        let tableData = TableCellData(title: profile.name,
-                                      subtitle: profile.displayUsername,
-                                      leftImagePath: profile.avatarPath,
-                                      showCheckmark: shouldShowCheckmark)
-
-        let cellConfigurator = CellConfigurator()
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellConfigurator.cellIdentifier(for: tableData.components), for: indexPath) as? BasicTableViewCell else {
-            return UITableViewCell()
-        }
-
-        cell.checkmarkView.checked = isProfileSelected(profile)
-        cell.selectionStyle = isMultipleSelectionMode ? .none : .default
-        cellConfigurator.configureCell(cell, with: tableData)
-
-        return cell
-    }
-}
-
 // MARK: - Mix-in extensions
 
 extension ProfilesViewController: SystemSharing { /* mix-in */ }
@@ -428,6 +362,16 @@ extension ProfilesViewController: UISearchBarDelegate {
         }
 
         reload(searchText: searchText)
+    }
+
+
+    @objc private func reload(searchText: String) {
+        searchBarText = searchText
+        IDAPIClient.shared.searchContacts(name: searchText) { [weak self] users in
+            if let searchBarText = self?.searchBarText, searchText == searchBarText {
+                self?.searchResultView.searchResults = users
+            }
+        }
     }
 }
 
@@ -463,50 +407,6 @@ extension ProfilesViewController: ProfilesAddGroupHeaderDelegate {
     }
 }
 
-// MARK: - Profiles Datasource Changes Output
-
-extension ProfilesViewController: ProfilesDatasourceChangesOutput {
-
-    func datasourceDidChange(_ datasource: ProfilesDataSource, yapDatabaseChanges: [YapDatabaseViewRowChange]) {
-
-        if navigationController?.topViewController == self && tabBarController?.selectedViewController == navigationController {
-            tableView.beginUpdates()
-
-            for rowChange in yapDatabaseChanges {
-
-                switch rowChange.type {
-                case .delete:
-                    guard let indexPath = rowChange.indexPath else { continue }
-                    tableView.deleteRows(at: [indexPath], with: .none)
-                case .insert:
-                    guard let newIndexPath = rowChange.newIndexPath else { continue }
-                    tableView.insertRows(at: [newIndexPath], with: .none)
-                case .move:
-                    guard let newIndexPath = rowChange.newIndexPath, let indexPath = rowChange.indexPath else { continue }
-                    tableView.deleteRows(at: [indexPath], with: .none)
-                    tableView.insertRows(at: [newIndexPath], with: .none)
-                case .update:
-                    guard let indexPath = rowChange.indexPath else { continue }
-                    tableView.reloadRows(at: [indexPath], with: .none)
-                }
-            }
-
-            tableView.endUpdates()
-        } else {
-            tableView.reloadData()
-        }
-    }
-
-    @objc private func reload(searchText: String) {
-        searchBarText = searchText
-        IDAPIClient.shared.searchContacts(name: searchText) { [weak self] users in
-            if let searchBarText = self?.searchBarText, searchText == searchBarText {
-                self?.searchResultView.searchResults = users
-            }
-        }
-    }
-}
-
 // MARK: - Search Selection Delegate
 
 extension ProfilesViewController: SearchSelectionDelegate {
@@ -518,4 +418,19 @@ extension ProfilesViewController: SearchSelectionDelegate {
     func isSearchResultSelected(user: TokenUser) -> Bool {
         return isProfileSelected(user)
     }
+
+    func didSelectProfile(profile: TokenUser) {
+        searchController.searchBar.resignFirstResponder()
+
+        switch type {
+        case .newChat:
+            output?.didFinish(self, selectedProfilesIds: [profile.address])
+        case .newGroupChat, .updateGroupChat:
+            updateSelection(with: profile)
+            updateHeaderWithSelections()
+            reloadData()
+            navigationItem.rightBarButtonItem?.isEnabled = rightBarButtonEnabled()
+        }
+    }
+
 }

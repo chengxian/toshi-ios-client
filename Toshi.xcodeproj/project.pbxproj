@@ -76,6 +76,9 @@
 		2B2C845F1F99EB3D00D18CAC /* DepositMoneyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B7A1EF7D582007C3206 /* DepositMoneyHeader.swift */; };
 		2B2C84601F99EE9200D18CAC /* DepositMoneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B781EF7CEAD007C3206 /* DepositMoneyController.swift */; };
 		2B2C84611F99EEF100D18CAC /* DepositMoneyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA6B7A1EF7D582007C3206 /* DepositMoneyHeader.swift */; };
+		2B3541D2207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
+		2B3541D3207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
+		2B3541D4207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */; };
 		2B355BDA1EAE356C0093FA8F /* TokenUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B355BD91EAE356C0093FA8F /* TokenUser.swift */; };
 		2B35F2C01EF93320006A0FD0 /* ActivityIndicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C07E1EF3ED4700F99CE2 /* ActivityIndicating.swift */; };
 		2B369E371EE59958002A44A3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E5DA11E4C982300543296 /* Message.swift */; };
@@ -1207,6 +1210,7 @@
 		2B20BBDE1F7A53A400844315 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		2B282E791FD8171900B52272 /* sofa-web3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "sofa-web3.js"; sourceTree = "<group>"; };
 		2B2AE1E9203D888C00202BE2 /* WalletEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEmptyView.swift; sourceTree = "<group>"; };
+		2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBotsGroupsDatasource.swift; sourceTree = "<group>"; };
 		2B355BD91EAE356C0093FA8F /* TokenUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenUser.swift; sourceTree = "<group>"; };
 		2B3D8173202E63DB003B7874 /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 		2B3D8178202E68C9003B7874 /* SendTokenViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenViewConfigurator.swift; sourceTree = "<group>"; };
@@ -2576,6 +2580,7 @@
 				2B09B4081FE11F40008F7917 /* ThreadsDataSource.swift */,
 				2B09B40C1FE1230B008F7917 /* RecentViewModel.swift */,
 				2B07FC4A2077676D005F2B40 /* UserBotsGroupsViewController.swift */,
+				2B3541D1207B4F440020E841 /* UsersBotsGroupsDatasource.swift */,
 			);
 			path = Recent;
 			sourceTree = "<group>";
@@ -3802,6 +3807,7 @@
 				9F88EA041EE0402F00267573 /* PassphraseView.swift in Sources */,
 				2BC7CA2A1F7BA6D000033E35 /* UIViewController+NavigationBar.swift in Sources */,
 				84FFE1E51F3C7D09008CEEF2 /* EthereumAddress.swift in Sources */,
+				2B3541D4207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */,
 				9F78D9D91EE93F36003A0B95 /* AlertController.swift in Sources */,
 				9F30A81E1ED2EDA9003E56A2 /* SOFAWebController.swift in Sources */,
 				2B4E25E41FCCCD04004614D5 /* AvatarTitleSubtitleDetailsCell.swift in Sources */,
@@ -4098,6 +4104,7 @@
 				3367F8DF2003B28900DE1557 /* UIViewController+TestHelpers.swift in Sources */,
 				A9E1DCDB1F1E1A72001A4ABE /* IconLabelView.swift in Sources */,
 				2B47941A1F1E06BB00AC3EB4 /* ProfileEditItem .swift in Sources */,
+				2B3541D2207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */,
 				9F2433D41E5F46F6003D95A1 /* SignalNotificationHandler.swift in Sources */,
 				9FAC46ED1E800C13005F76A9 /* UIColor+Additions.swift in Sources */,
 				A9AC740B1E77E62900365029 /* UIView+Additions.swift in Sources */,
@@ -4380,6 +4387,7 @@
 				A9603D561F4DABDC00BF57B1 /* EthereumAddress.swift in Sources */,
 				A9603D611F4DABDC00BF57B1 /* AlertController.swift in Sources */,
 				A9603D6D1F4DABDC00BF57B1 /* SOFAWebController.swift in Sources */,
+				2B3541D3207B4F440020E841 /* UsersBotsGroupsDatasource.swift in Sources */,
 				A9603D711F4DABDC00BF57B1 /* ModalPresentationController.swift in Sources */,
 				2B20BBE01F7A595700844315 /* APIKeys.swift in Sources */,
 				2B4E25E31FCCCD04004614D5 /* AvatarTitleSubtitleDetailsCell.swift in Sources */,

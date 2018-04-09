@@ -18,6 +18,8 @@ import TinyConstraints
 
 final class UserBotsGroupsViewController: UIViewController {
 
+    private let dataSource = UsersBotsGroupsDataSource()
+
     private lazy var backButton: UIButton = {
         let view = UIButton()
         view.setTitleColor(Theme.tintColor, for: .normal)
@@ -160,7 +162,7 @@ final class UserBotsGroupsViewController: UIViewController {
     private func adjustHeaderToSearching(isSearching: Bool) {
         toolbar.layoutIfNeeded()
         cancelButton.isHidden = !isSearching
-        self.backButton.isHidden = isSearching
+        backButton.isHidden = isSearching
 
         UIView.animate(withDuration: 0.3) {
             self.backButton.alpha = isSearching ? 0 : 1
@@ -173,12 +175,14 @@ extension UserBotsGroupsViewController: UITextFieldDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         adjustHeaderToSearching(isSearching: true)
+        dataSource.isSearching = true
 
         return true
     }
 
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         adjustHeaderToSearching(isSearching: false)
+        dataSource.isSearching = false
 
         return true
     }
